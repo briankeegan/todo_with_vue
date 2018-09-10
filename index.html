@@ -20,9 +20,12 @@
         @keyup.enter="createTodo"
       />
       <ol>
-        <li v-for="todo in todos">
-          {{ todo }}
-        </li>
+        <div v-for="(todo, index) in todos">
+          <li>
+            {{ todo }}
+          </li>
+          <input type="button" value="X" @click="deleteTodo(index)"/>
+        </div>
       </ol>
       </div>
     </div>

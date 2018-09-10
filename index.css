@@ -3,8 +3,10 @@
 }
 
 .todo-container {
+  display: flex;
+  flex-direction: column;
   margin-top: 25px;
-  text-align: center;
+  align-items: center;
 }
 
 h1 {
@@ -41,8 +43,29 @@ input[type=text]:focus::-moz-placeholder { /* Firefox 19+ */
   font-style: normal;
 }
 
+ol div {
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
+}
+
 li {
   margin: 15px 0;
   font-size: 25px;
   color: #444;
+}
+
+input[type=button] {
+  border: none;
+  background-color: transparent;
+  font-size: 30px;
+}
+
+input[type=button]:hover {
+  cursor: pointer;
+}
+
+input[type=button]:focus {
+  outline-color: transparent;
+  color: #666;
 }

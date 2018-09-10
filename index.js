@@ -4,12 +4,15 @@ const app = new Vue({
     headerTitle: 'Todo App with Vue',
     inputPlaceholder: 'Write your todos',
     inputValue: '',
-    todos: []
+    todos: ['asdf']
   },
   methods: {
     createTodo: function () {
       this.todos.push(this.inputValue);
       this.inputValue = '';
+    },
+    deleteTodo: function (index) {
+      this.todos.splice(index, 1)
     }
   }
 });
