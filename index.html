@@ -13,7 +13,17 @@
     <div id='app'>
       <h1>{{ headerTitle }}</h1>
       <div class="todo-container">
-        <input type="text" :placeholder="inputPlaceholder" />
+        <input
+        type="text"
+        :placeholder="inputPlaceholder"
+        v-model="inputValue"
+        @keyup.enter="createTodo"
+      />
+      <ol>
+        <li v-for="todo in todos">
+          {{ todo }}
+        </li>
+      </ol>
       </div>
     </div>
     <!--js -->

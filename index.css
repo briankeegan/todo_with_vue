@@ -40,3 +40,9 @@ input[type=text]:focus::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 input[type=text]:focus::-moz-placeholder { /* Firefox 19+ */
   font-style: normal;
 }
+
+li {
+  margin: 15px 0;
+  font-size: 25px;
+  color: #444;
+}
