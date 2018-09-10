@@ -1,10 +1,20 @@
+const storeTodos = {
+  key: 'Todo with Vue',
+  get: () => {
+    return JSON.parse(localStorage.getItem(storeTodos.key)) || [];
+  },
+  save: (todos) => {
+    localStorage.setItem(storeTodos.key, JSON.stringify(todos));
+  }
+};
+
 new Vue({
   el: '#app',
   data: {
     headerTitle: 'Todo App with Vue',
     inputPlaceholder: 'Write your todos',
     inputValue: '',
-    todos: [],
+    todos: storeTodos.get(),
     curretFilter: 'ALL',
     filterTypes: ['ALL', 'ACTIVE', 'COMPLETED']
   },
@@ -41,5 +51,13 @@ new Vue({
         return true;
       }
     }
-  }
+  },
+  watch: {
+    todos: {
+      handler: function (todos) {
+        storeTodos.save(todos)
+      },
+      deep: true
+    }
+  },
 });
