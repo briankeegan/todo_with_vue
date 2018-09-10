@@ -53,19 +53,25 @@ li {
   margin: 15px 0;
   font-size: 25px;
   color: #444;
+  cursor: pointer;
 }
 
 input[type=button] {
   border: none;
   background-color: transparent;
   font-size: 30px;
+  cursor: pointer;
 }
 
 input[type=button]:hover {
-  cursor: pointer;
+  color: #888;
 }
 
 input[type=button]:focus {
   outline-color: transparent;
   color: #666;
+}
+
+.crossedOut {
+  text-decoration: line-through;
 }
