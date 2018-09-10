@@ -12,7 +12,6 @@
   <body>
     <div id='app'>
       <h1>{{ headerTitle }}</h1>
-      <div class="todo-container">
         <input
         type="text"
         :placeholder="inputPlaceholder"
@@ -20,13 +19,30 @@
         @keyup.enter="createTodo"
       />
       <ol>
-        <div v-for="(todo, index) in todos">
-          <li @click="toggleDone(index)" :class="{crossedOut: todo.done}">
+        <div
+          v-for="(todo, index) in todos"
+          v-show="showItem(todo.done)"
+        >
+          <li
+            @click="toggleDone(index)"
+            :class="{crossed_out: todo.done}"
+          >
             {{ todo.text }}
           </li>
           <input type="button" value="X" @click="deleteTodo(index)"/>
         </div>
       </ol>
+
+      <div
+        class="filters"
+        v-show="todos.length"
+      >
+        <a v-for="type in filterTypes"
+          @click="filter(type)"
+          :class="{current_filter: isFilterType(type)}"
+        >
+          {{ type }}
+        </a>
       </div>
     </div>
     <!--js -->
